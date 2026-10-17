@@ -1,0 +1,73 @@
+// Sambhrama Gold Company — Prisma Schema
+// Production database schema for PostgreSQL
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Admin {
+  id           String         @id @default(uuid())
+  email        String         @unique
+  name         String
+  passwordHash String
+  createdAt    DateTime       @default(now())
+  updatedAt    DateTime       @updatedAt
+  sessions     AdminSession[]
+  rateUpdates  GoldRate[]
+}
+
+model AdminSession {
+  id        String   @id @default(uuid())
+  tokenHash String   @unique
+  csrfToken String
+  adminId   String
+  admin     Admin    @relation(fields: [adminId], references: [id], onDelete: Cascade)
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+  ipAddress String?
+  userAgent String?
+
+  @@index([adminId])
+  @@index([expiresAt])
+}
+
+model GoldRate {
+  id          String   @id @default(uuid())
+  rate22k     Decimal  @db.Decimal(12, 2)
+  rate24k     Decimal  @db.Decimal(12, 2)
+  currency    String   @default("INR")
+  note        String?
+  updatedAt   DateTime @default(now())
+  updatedById String?
+  updatedBy   Admin?   @relation(fields: [updatedById], references: [id], onDelete: SetNull)
+
+  @@index([updatedAt(sort: Desc)])
+}
+
+model Enquiry {
+  id                  String   @id @default(uuid())
+  enquiryType         String   // "QUICK" | "SELL_GOLD" | "REAL_ESTATE" | "LOANS" | "CONTACT"
+  fullName            String
+  mobile              String
+  email               String?
+  city                String?
+  serviceRequired     String?
+  goldType            String?
+  approxWeightGrams   Decimal? @db.Decimal(10, 2)
+  propertyRequirement String?
+  preferredLocation   String?
+  loanType            String?
+  loanRequirement     String?
+  subject             String?
+  message             String
+  ipAddress           String?
+  createdAt           DateTime @default(now())
+
+  @@index([enquiryType])
+  @@index([createdAt(sort: Desc)])
+}
