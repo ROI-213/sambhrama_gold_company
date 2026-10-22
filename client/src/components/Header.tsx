@@ -47,23 +47,23 @@ export const Header: React.FC = () => {
     <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b-2 border-[#FFB800]/50 shadow-sm">
       <GoldRateBar />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16 sm:h-20 gap-2">
           {/* Brand Logo */}
           <Link
             to="/"
-            className="flex items-center gap-3 group focus-visible:outline-2 focus-visible:outline-[#991B1B]"
+            className="flex items-center gap-2.5 sm:gap-3 min-w-0 group focus-visible:outline-2 focus-visible:outline-[#991B1B]"
           >
             <img
               src="/images/logo.jpg"
               alt={`${companyConfig.companyName} Logo`}
-              className="h-14 w-14 rounded-lg object-contain bg-white border-2 border-[#FFB800] p-0.5 shadow-md group-hover:scale-105 transition-transform"
+              className="h-11 w-11 sm:h-14 sm:w-14 shrink-0 rounded-lg object-contain bg-white border-2 border-[#FFB800] p-0.5 shadow-md group-hover:scale-105 transition-transform"
             />
-            <div>
-              <span className="block font-serif-luxury text-lg sm:text-xl font-bold tracking-wide text-[#7F1D1D] group-hover:text-[#991B1B] transition-colors">
+            <div className="min-w-0">
+              <span className="block font-serif-luxury text-base sm:text-xl font-bold tracking-wide text-[#7F1D1D] group-hover:text-[#991B1B] transition-colors leading-tight truncate">
                 {companyConfig.companyName}
               </span>
-              <span className="block text-[10px] font-bold uppercase tracking-[0.22em] text-[#D97706]">
+              <span className="block text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.14em] sm:tracking-[0.22em] text-[#D97706] mt-0.5">
                 Gold • Real Estate • Loans
               </span>
             </div>
@@ -184,7 +184,7 @@ export const Header: React.FC = () => {
         <nav
           id="mobile-navigation-menu"
           aria-label="Mobile Navigation"
-          className="lg:hidden border-t border-[#F59E0B]/40 bg-white px-4 pt-3 pb-6 space-y-1.5 shadow-lg"
+          className="lg:hidden border-t border-[#F59E0B]/40 bg-white px-4 pt-3 pb-6 space-y-1.5 shadow-lg max-h-[calc(100vh-6.5rem)] overflow-y-auto"
         >
           <NavLink
             to="/"

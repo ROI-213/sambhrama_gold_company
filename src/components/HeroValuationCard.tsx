@@ -117,18 +117,18 @@ export const HeroValuationCard: React.FC = () => {
 
   return (
     <div
-      className="w-full max-w-[430px] mx-auto lg:ml-auto rounded-2xl bg-white p-6 sm:p-7 shadow-[0_20px_50px_rgba(0,0,0,0.45)] border border-[#F59E0B]/50"
+      className="w-full max-w-[430px] mx-auto lg:ml-auto rounded-2xl bg-white p-4 sm:p-7 shadow-[0_20px_50px_rgba(0,0,0,0.45)] border border-[#F59E0B]/50"
       data-testid="hero-valuation-card"
     >
       <div className="text-center mb-4">
-        <h2 className="font-serif-luxury text-2xl sm:text-[1.75rem] font-bold text-[#111827]">
+        <h2 className="font-serif-luxury text-xl sm:text-[1.75rem] font-bold text-[#111827]">
           Get Instant Valuation
         </h2>
         <p className="mt-1 text-xs font-medium text-gray-600">
           Know the exact value of your gold in seconds.
         </p>
-        <div className="mt-2.5 inline-flex items-center gap-1.5 rounded-full border border-[#F59E0B] bg-[#FFFBEB] px-3.5 py-1 text-[11px] font-bold text-[#8B0000]">
-          <ShieldCheck className="h-3.5 w-3.5 text-[#D97706]" aria-hidden="true" />
+        <div className="mt-2.5 inline-flex items-center gap-1.5 rounded-full border border-[#F59E0B] bg-[#FFFBEB] px-3 sm:px-3.5 py-1 text-[10px] sm:text-[11px] font-bold text-[#8B0000]">
+          <ShieldCheck className="h-3.5 w-3.5 text-[#D97706] shrink-0" aria-hidden="true" />
           <span>Safe. Secure. Trusted by Thousands</span>
         </div>
       </div>

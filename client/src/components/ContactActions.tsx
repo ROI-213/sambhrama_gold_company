@@ -20,33 +20,33 @@ export const ContactActions: React.FC<{
   const whatsappHref = getWhatsAppHref(companyConfig.whatsapp);
 
   return (
-    <div className={`flex flex-wrap items-center gap-4 ${className}`}>
+    <div className={`flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3 sm:gap-4 w-full sm:w-auto ${className}`}>
       {showSellGold && (
-        <PrimaryButton to="/sell-your-gold" variant="gold">
+        <PrimaryButton to="/sell-your-gold" variant="gold" className="w-full sm:w-auto">
           <span>Sell Your Gold</span>
           <ArrowRight className="h-4 w-4" aria-hidden="true" />
         </PrimaryButton>
       )}
 
       {telHref ? (
-        <PrimaryButton href={telHref} variant="outline">
+        <PrimaryButton href={telHref} variant="outline" className="w-full sm:w-auto">
           <PhoneCall className="h-4 w-4 text-[#B91C1C]" aria-hidden="true" />
           <span>Call Now ({companyConfig.phone})</span>
         </PrimaryButton>
       ) : (
-        <PrimaryButton to="/contact" variant="outline">
+        <PrimaryButton to="/contact" variant="outline" className="w-full sm:w-auto">
           <PhoneCall className="h-4 w-4 text-[#B91C1C]" aria-hidden="true" />
           <span>Request a Call</span>
         </PrimaryButton>
       )}
 
       {whatsappHref ? (
-        <PrimaryButton href={whatsappHref} external variant="dark">
+        <PrimaryButton href={whatsappHref} external variant="dark" className="w-full sm:w-auto">
           <MessageCircle className="h-4 w-4 text-[#25D366]" aria-hidden="true" />
           <span>WhatsApp Us</span>
         </PrimaryButton>
       ) : (
-        <PrimaryButton to="/contact#contact-form" variant="dark">
+        <PrimaryButton to="/contact#contact-form" variant="dark" className="w-full sm:w-auto">
           <MessageCircle className="h-4 w-4 text-[#FFD700]" aria-hidden="true" />
           <span>Send Message</span>
         </PrimaryButton>
