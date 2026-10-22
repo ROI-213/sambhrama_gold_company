@@ -46,7 +46,7 @@ describe("Sambhrama Gold Company Frontend Suite", () => {
     });
 
     expect(
-      screen.getByRole("heading", { level: 1, name: /Your Gold\. Its True Value\./i })
+      screen.getByRole("heading", { level: 1, name: /Turn Your Gold Into/i })
     ).toBeInTheDocument();
   });
 

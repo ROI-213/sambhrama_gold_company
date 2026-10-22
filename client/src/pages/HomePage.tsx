@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
   Eye,
@@ -10,6 +11,10 @@ import {
   ArrowRight,
   Sparkles,
   MessageSquareQuote,
+  Crown,
+  TrendingUp,
+  Clock,
+  Users,
 } from "lucide-react";
 import { usePageMeta } from "../hooks/usePageMeta";
 import { PrimaryButton } from "../components/PrimaryButton";
@@ -66,98 +71,125 @@ export const HomePage: React.FC = () => {
         </div>
       </div>
 
-      {/* 1. Hero Section: Two-Column Royal Red & Golden Yellow Showcase with Instant Valuation Form */}
-      <section className="relative overflow-hidden bg-[#7F1D1D] border-b-4 border-[#FFB800] py-14 sm:py-20 lg:py-24">
+      {/* 1. Hero Section: Luxury Crimson & Gold Bullion Showcase with Interactive Buttons & Instant Valuation Card */}
+      <section className="relative overflow-hidden bg-[#4A0509] border-b-4 border-[#FFB800] py-12 sm:py-16 lg:py-20">
+        {/* Background Artwork */}
         <div className="absolute inset-0 z-0">
           <img
-            src="/images/hero-indian-gold.jpg"
-            alt="Traditional Indian gold jewellery and bullion"
-            className="h-full w-full object-cover object-center opacity-25"
+            src="/images/hero-gold-banner-bg.jpg"
+            alt="Fine gold bullion bars, gold coins, and traditional Indian gold jewellery on royal crimson velvet"
+            className="h-full w-full object-cover object-center"
           />
+          {/* Left-weighted gradient overlay so text & buttons are crystal clear while keeping center/right gold bullion vivid */}
           <div
-            className="absolute inset-0 bg-gradient-to-r from-[#5C060A] via-[#7F1D1D]/95 to-[#6E080D]/90"
-            aria-hidden="true"
-          />
-          <div
-            className="absolute inset-0 bg-[radial-gradient(#FFB800_1px,transparent_1px)] [background-size:24px_24px] opacity-15"
+            className="absolute inset-0 bg-gradient-to-r from-[#3A0306]/95 via-[#4A0509]/70 to-[#3A0306]/35"
             aria-hidden="true"
           />
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-            {/* Left Column: Headline, Description, Trust Badges & CTAs */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+            {/* Left Column: Badge, Headline, Subtitle, 4 Circular Feature Icons & 3 Interactive Buttons */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               className="lg:col-span-7"
             >
-              <span className="inline-flex items-center gap-2 rounded-full border border-[#FFD700]/80 bg-[#5C060A]/80 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.18em] text-[#FFD700] mb-6">
-                <Sparkles className="h-3.5 w-3.5 text-[#FFD700]" aria-hidden="true" />
-                Sambhrama Gold Company • Ethical Gold Buyer
-              </span>
+              {/* Top Pill Badge */}
+              <div className="inline-flex items-center gap-2 rounded-full border border-[#F59E0B]/75 bg-[#3B0609]/85 px-4 py-1.5 text-[11px] sm:text-xs font-bold uppercase tracking-[0.18em] text-[#FBBF24] mb-6 shadow-md">
+                <Crown className="h-3.5 w-3.5 text-[#FBBF24] fill-[#FBBF24]" aria-hidden="true" />
+                <span>Sambhrama Gold Company • Ethical Gold Buyer</span>
+              </div>
 
-              <h1 className="font-serif-luxury text-4xl sm:text-5xl lg:text-[3.5rem] font-bold leading-[1.12] text-white">
-                Your Gold.{" "}
-                <span className="text-[#FFD700]">Its True Value.</span>{" "}
-                Our Commitment.
+              {/* Two-Line Display Headline */}
+              <h1 className="font-serif-luxury text-4xl sm:text-5xl lg:text-[3.65rem] font-bold leading-[1.12] tracking-tight text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.45)]">
+                <span className="block">Turn Your Gold Into</span>
+                <span className="relative inline-block mt-1 bg-gradient-to-r from-[#FDE047] via-[#FBBF24] to-[#D97706] bg-clip-text text-transparent">
+                  Real Opportunities.
+                  <span
+                    className="block mt-1.5 h-[2px] w-full bg-gradient-to-r from-transparent via-[#FBBF24] to-transparent opacity-85"
+                    aria-hidden="true"
+                  />
+                </span>
               </h1>
 
-              <div className="mt-5 h-1 w-20 bg-[#FFD700] rounded-full" aria-hidden="true" />
-
-              <p className="mt-5 text-base sm:text-lg leading-relaxed text-white/90 max-w-2xl">
-                Experience a refined, dignified, and completely transparent way to evaluate
-                and sell your gold. Every ornament is tested in your presence with scientific
-                precision and honest valuation.{" "}
-                <strong className="text-[#FFD700]">
-                  (By the customer, purchase bill is required.)
-                </strong>
+              {/* Subtitle */}
+              <p className="mt-5 text-base sm:text-lg leading-relaxed text-white/95 max-w-xl drop-shadow-[0_1px_4px_rgba(0,0,0,0.5)]">
+                Get the true value of your gold with complete transparency,
+                expert verification, and the best market rates.
               </p>
 
-              {/* 4 Verified Pillar Badges matching the reference layout */}
-              <div className="mt-7 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-2xl">
-                <div className="rounded-lg border border-[#FFD700]/35 bg-[#5C060A]/75 px-3.5 py-3 flex items-center gap-2.5">
-                  <Eye className="h-5 w-5 text-[#FFD700] shrink-0" aria-hidden="true" />
-                  <div className="text-xs leading-tight text-white">
-                    <strong className="block font-bold">100% Open</strong>
-                    <span className="text-white/80 text-[11px]">Evaluation</span>
+              {/* 4 Circular Gold Icon Highlights with Vertical Dividers */}
+              <div className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-y-5 sm:gap-y-0 sm:divide-x sm:divide-white/20 max-w-xl">
+                <div className="flex flex-col items-center text-center px-2 sm:first:pl-0">
+                  <div className="h-11 w-11 rounded-full border border-[#F59E0B] bg-[#3B0609]/80 flex items-center justify-center shadow-[0_0_15px_rgba(245,158,11,0.25)] mb-2">
+                    <TrendingUp className="h-5 w-5 text-[#FBBF24]" aria-hidden="true" />
                   </div>
+                  <span className="text-xs font-bold leading-snug text-white">
+                    Best Market
+                    <br />
+                    Price
+                  </span>
                 </div>
-                <div className="rounded-lg border border-[#FFD700]/35 bg-[#5C060A]/75 px-3.5 py-3 flex items-center gap-2.5">
-                  <Microscope className="h-5 w-5 text-[#FFD700] shrink-0" aria-hidden="true" />
-                  <div className="text-xs leading-tight text-white">
-                    <strong className="block font-bold">Scientific</strong>
-                    <span className="text-white/80 text-[11px]">Purity Test</span>
+
+                <div className="flex flex-col items-center text-center px-2">
+                  <div className="h-11 w-11 rounded-full border border-[#F59E0B] bg-[#3B0609]/80 flex items-center justify-center shadow-[0_0_15px_rgba(245,158,11,0.25)] mb-2">
+                    <IndianRupee className="h-5 w-5 text-[#FBBF24]" aria-hidden="true" />
                   </div>
+                  <span className="text-xs font-bold leading-snug text-white">
+                    No Hidden
+                    <br />
+                    Charges
+                  </span>
                 </div>
-                <div className="rounded-lg border border-[#FFD700]/35 bg-[#5C060A]/75 px-3.5 py-3 flex items-center gap-2.5">
-                  <ClipboardCheck className="h-5 w-5 text-[#FFD700] shrink-0" aria-hidden="true" />
-                  <div className="text-xs leading-tight text-white">
-                    <strong className="block font-bold">Purchase Bill</strong>
-                    <span className="text-white/80 text-[11px]">Required</span>
+
+                <div className="flex flex-col items-center text-center px-2">
+                  <div className="h-11 w-11 rounded-full border border-[#F59E0B] bg-[#3B0609]/80 flex items-center justify-center shadow-[0_0_15px_rgba(245,158,11,0.25)] mb-2">
+                    <Clock className="h-5 w-5 text-[#FBBF24]" aria-hidden="true" />
                   </div>
+                  <span className="text-xs font-bold leading-snug text-white">
+                    Fast &amp; Hassle-Free
+                    <br />
+                    Process
+                  </span>
                 </div>
-                <div className="rounded-lg border border-[#FFD700]/35 bg-[#5C060A]/75 px-3.5 py-3 flex items-center gap-2.5">
-                  <ShieldCheck className="h-5 w-5 text-[#FFD700] shrink-0" aria-hidden="true" />
-                  <div className="text-xs leading-tight text-white">
-                    <strong className="block font-bold">KYC Safe</strong>
-                    <span className="text-white/80 text-[11px]">Settlement</span>
+
+                <div className="flex flex-col items-center text-center px-2 sm:last:pr-0">
+                  <div className="h-11 w-11 rounded-full border border-[#F59E0B] bg-[#3B0609]/80 flex items-center justify-center shadow-[0_0_15px_rgba(245,158,11,0.25)] mb-2">
+                    <Users className="h-5 w-5 text-[#FBBF24]" aria-hidden="true" />
                   </div>
+                  <span className="text-xs font-bold leading-snug text-white">
+                    Trusted by
+                    <br />
+                    Lakhs of Customers
+                  </span>
                 </div>
               </div>
 
-              <div className="mt-8 flex flex-wrap items-center gap-4">
-                <PrimaryButton to="/sell-your-gold" variant="gold">
+              {/* 3 Real Interactive Action Buttons */}
+              <div className="mt-9 flex flex-wrap items-center gap-3.5">
+                <Link
+                  to="/sell-your-gold"
+                  className="inline-flex items-center justify-center gap-2 rounded-lg bg-gradient-to-b from-[#FBBF24] via-[#F59E0B] to-[#D97706] border border-[#FDE047] px-6 py-3.5 text-sm font-bold text-[#2A0507] shadow-[0_8px_22px_rgba(245,158,11,0.4)] hover:brightness-110 hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.99] transition-all cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FFD700]"
+                >
                   <span>Sell Your Gold</span>
                   <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                </PrimaryButton>
-                <PrimaryButton to="/sell-your-gold#sell-gold-enquiry" variant="outline">
-                  Get Best Gold Value
-                </PrimaryButton>
-                <PrimaryButton to="/contact" variant="dark">
-                  Contact Us
-                </PrimaryButton>
+                </Link>
+
+                <Link
+                  to="/ventures/loans"
+                  className="inline-flex items-center justify-center rounded-lg border-2 border-[#FDE68A] bg-white px-6 py-3.5 text-sm font-bold text-[#7F1D1D] shadow-[0_8px_22px_rgba(0,0,0,0.3)] hover:bg-[#FFFBEB] hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.99] transition-all cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                >
+                  <span>Get Gold Loan Value</span>
+                </Link>
+
+                <Link
+                  to="/contact"
+                  className="inline-flex items-center justify-center rounded-lg border border-[#F59E0B]/80 bg-[#5C060A]/90 backdrop-blur-xs px-6 py-3.5 text-sm font-bold text-[#FDE68A] shadow-[0_8px_22px_rgba(0,0,0,0.3)] hover:bg-[#7F1D1D] hover:text-white hover:border-[#FFD700] hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.99] transition-all cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FFD700]"
+                >
+                  <span>Contact Us</span>
+                </Link>
               </div>
             </motion.div>
 
