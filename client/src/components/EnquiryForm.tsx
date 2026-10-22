@@ -250,7 +250,7 @@ export const EnquiryForm: React.FC<EnquiryFormProps> = ({
   const inputClass =
     "mt-1.5 w-full rounded-md border border-[#F59E0B]/50 bg-[#FFFDF7] px-4 py-3 text-sm text-[#7F1D1D] placeholder-[#8A6262] focus:border-[#FFB800] focus:outline-none";
   const labelClass = "block text-xs font-semibold uppercase tracking-wider text-[#991B1B]";
-  const errorClass = "mt-1.5 text-xs text-red-400";
+  const errorClass = "mt-1.5 text-xs font-medium text-red-600";
 
   return (
     <div
@@ -275,11 +275,11 @@ export const EnquiryForm: React.FC<EnquiryFormProps> = ({
           role="status"
           aria-live="polite"
           data-testid="enquiry-success-alert"
-          className="mb-6 flex items-start gap-3 rounded-lg border border-emerald-500/40 bg-emerald-950/30 p-4 text-sm text-emerald-200"
+          className="mb-6 flex items-start gap-3 rounded-lg border border-emerald-500/60 bg-emerald-50 p-4 text-sm text-emerald-900"
         >
-          <CheckCircle2 className="h-5 w-5 text-emerald-400 shrink-0 mt-0.5" />
+          <CheckCircle2 className="h-5 w-5 text-emerald-600 shrink-0 mt-0.5" />
           <div>
-            <p className="font-semibold text-emerald-300">Enquiry Submitted Successfully</p>
+            <p className="font-semibold text-emerald-800">Enquiry Submitted Successfully</p>
             <p className="mt-0.5 text-xs leading-relaxed">{serverSuccess}</p>
           </div>
         </div>
@@ -289,11 +289,11 @@ export const EnquiryForm: React.FC<EnquiryFormProps> = ({
         <div
           role="alert"
           data-testid="enquiry-error-alert"
-          className="mb-6 flex items-start gap-3 rounded-lg border border-red-500/40 bg-red-950/30 p-4 text-sm text-red-200"
+          className="mb-6 flex items-start gap-3 rounded-lg border border-red-500/60 bg-red-50 p-4 text-sm text-red-900"
         >
-          <AlertCircle className="h-5 w-5 text-red-400 shrink-0 mt-0.5" />
+          <AlertCircle className="h-5 w-5 text-red-600 shrink-0 mt-0.5" />
           <div>
-            <p className="font-semibold text-red-300">Submission Error</p>
+            <p className="font-semibold text-red-800">Submission Error</p>
             <p className="mt-0.5 text-xs leading-relaxed">{serverError}</p>
           </div>
         </div>

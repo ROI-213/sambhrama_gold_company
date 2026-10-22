@@ -3,7 +3,7 @@ import { useNavigate, Navigate, Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { Lock, Gem, AlertCircle, Loader2, ArrowLeft } from "lucide-react";
+import { Lock, AlertCircle, Loader2, ArrowLeft } from "lucide-react";
 import { usePageMeta } from "../hooks/usePageMeta";
 import { loginAdminRequest } from "../services/api";
 import { useAdminAuth } from "./AdminAuthContext";
@@ -66,9 +66,11 @@ export const AdminLoginPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-[#FFFDF7] flex flex-col justify-center py-12 px-4 sm:px-6 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-md text-center">
-        <div className="mx-auto h-14 w-14 rounded-xl bg-white shadow-sm border border-[#FFB800]/60 flex items-center justify-center shadow-gold-glow">
-          <Gem className="h-7 w-7 text-[#B91C1C]" aria-hidden="true" />
-        </div>
+        <img
+          src="/images/logo.jpg"
+          alt={`${companyConfig.companyName} Logo`}
+          className="mx-auto h-20 w-20 rounded-xl object-contain bg-white border border-[#FFB800]/60 p-1 shadow-gold-glow"
+        />
         <h1 className="mt-5 font-serif-luxury text-3xl font-bold text-[#7F1D1D]">
           Administrator Sign In
         </h1>
@@ -83,9 +85,9 @@ export const AdminLoginPage: React.FC = () => {
             <div
               role="alert"
               data-testid="admin-login-error"
-              className="mb-6 flex items-start gap-2.5 rounded-lg border border-red-500/40 bg-red-950/30 p-3.5 text-xs text-red-200"
+              className="mb-6 flex items-start gap-2.5 rounded-lg border border-red-500/60 bg-red-50 p-3.5 text-xs text-red-900"
             >
-              <AlertCircle className="h-4 w-4 text-red-400 shrink-0 mt-0.5" />
+              <AlertCircle className="h-4 w-4 text-red-600 shrink-0 mt-0.5" />
               <span>{loginError}</span>
             </div>
           )}
@@ -107,7 +109,7 @@ export const AdminLoginPage: React.FC = () => {
                 {...register("email")}
               />
               {errors.email && (
-                <p role="alert" className="mt-1 text-xs text-red-400">
+                <p role="alert" className="mt-1 text-xs font-medium text-red-600">
                   {errors.email.message}
                 </p>
               )}
@@ -129,7 +131,7 @@ export const AdminLoginPage: React.FC = () => {
                 {...register("password")}
               />
               {errors.password && (
-                <p role="alert" className="mt-1 text-xs text-red-400">
+                <p role="alert" className="mt-1 text-xs font-medium text-red-600">
                   {errors.password.message}
                 </p>
               )}

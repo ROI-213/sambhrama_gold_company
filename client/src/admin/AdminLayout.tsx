@@ -1,6 +1,6 @@
 import React from "react";
 import { Navigate, Link, NavLink, useNavigate } from "react-router-dom";
-import { Gem, LayoutDashboard, Coins, LogOut, ExternalLink } from "lucide-react";
+import { LayoutDashboard, Coins, LogOut, ExternalLink } from "lucide-react";
 import { useAdminAuth } from "./AdminAuthContext";
 import { LoadingState } from "../components/StatusStates";
 import { companyConfig } from "../config/companyConfig";
@@ -49,9 +49,11 @@ export const AdminLayout: React.FC<{ children: React.ReactNode }> = ({
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
           <div className="flex items-center gap-6">
             <Link to="/admin" className="flex items-center gap-2.5">
-              <div className="h-9 w-9 rounded-lg bg-[#FEF3C7]/60 border border-[#FFB800]/60 flex items-center justify-center">
-                <Gem className="h-5 w-5 text-[#B91C1C]" aria-hidden="true" />
-              </div>
+              <img
+                src="/images/logo.jpg"
+                alt={`${companyConfig.companyName} Logo`}
+                className="h-10 w-10 rounded-lg object-contain bg-white border border-[#FFB800] p-0.5 shadow-sm"
+              />
               <div>
                 <span className="block font-serif-luxury text-base font-bold text-[#7F1D1D]">
                   {companyConfig.companyName}
@@ -90,7 +92,7 @@ export const AdminLayout: React.FC<{ children: React.ReactNode }> = ({
             <button
               type="button"
               onClick={handleLogout}
-              className="inline-flex items-center gap-1.5 rounded-md border border-red-500/40 bg-red-950/30 px-3.5 py-1.5 text-xs font-medium text-red-200 hover:bg-red-900/40 cursor-pointer"
+              className="inline-flex items-center gap-1.5 rounded-md border border-[#8B0000]/40 bg-[#8B0000] px-3.5 py-1.5 text-xs font-medium text-white hover:bg-[#6E080D] cursor-pointer"
             >
               <LogOut className="h-3.5 w-3.5" aria-hidden="true" />
               <span>Logout</span>

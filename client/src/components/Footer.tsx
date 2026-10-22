@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Gem, Phone, Mail, MapPin, Clock, Lock } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, Lock } from "lucide-react";
 import {
   companyConfig,
   getTelHref,
@@ -24,9 +24,11 @@ export const Footer: React.FC = () => {
           {/* Column 1: Brand */}
           <div>
             <Link to="/" className="flex items-center gap-3">
-              <div className="h-10 w-10 rounded-lg bg-white border-2 border-[#FFB800] flex items-center justify-center">
-                <Gem className="h-5 w-5 text-[#8B0000]" aria-hidden="true" />
-              </div>
+              <img
+                src="/images/logo.jpg"
+                alt={`${companyConfig.companyName} Logo`}
+                className="h-12 w-12 rounded-lg object-contain bg-white border-2 border-[#FFB800] p-0.5 shadow-sm"
+              />
               <span className="font-serif-luxury text-lg font-bold text-white">
                 {companyConfig.companyName}
               </span>

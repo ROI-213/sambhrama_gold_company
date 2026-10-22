@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
-import { Menu, X, ChevronDown, Gem } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { GoldRateBar } from "./GoldRateDisplay";
 import { PrimaryButton } from "./PrimaryButton";
 import { companyConfig } from "../config/companyConfig";
@@ -54,9 +54,11 @@ export const Header: React.FC = () => {
             to="/"
             className="flex items-center gap-3 group focus-visible:outline-2 focus-visible:outline-[#991B1B]"
           >
-            <div className="h-11 w-11 rounded-lg bg-gradient-to-br from-[#8B0000] to-[#5C060A] border-2 border-[#FFB800] flex items-center justify-center shadow-md group-hover:scale-105 transition-transform">
-              <Gem className="h-6 w-6 text-[#FFB800]" aria-hidden="true" />
-            </div>
+            <img
+              src="/images/logo.jpg"
+              alt={`${companyConfig.companyName} Logo`}
+              className="h-14 w-14 rounded-lg object-contain bg-white border-2 border-[#FFB800] p-0.5 shadow-md group-hover:scale-105 transition-transform"
+            />
             <div>
               <span className="block font-serif-luxury text-lg sm:text-xl font-bold tracking-wide text-[#7F1D1D] group-hover:text-[#991B1B] transition-colors">
                 {companyConfig.companyName}

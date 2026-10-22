@@ -168,12 +168,12 @@ export const GoldVenturePage: React.FC = () => {
       </section>
 
       {/* Sell Your Gold CTA */}
-      <section className="py-20 bg-gradient-to-br from-[#8B0000] to-[#5C060A]">
+      <section className="py-20 bg-gradient-to-br from-[#8B0000] via-[#7F1D1D] to-[#5C060A] text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="font-serif-luxury text-3xl sm:text-4xl font-bold text-[#7F1D1D]">
+          <h2 className="font-serif-luxury text-3xl sm:text-4xl font-bold text-white">
             Ready to Evaluate or Sell Your Gold?
           </h2>
-          <p className="mt-3 text-base text-[#422020] max-w-xl mx-auto mb-8">
+          <p className="mt-3 text-base text-white/90 max-w-xl mx-auto mb-8">
             Submit an online gold valuation enquiry or visit our office for an in-person
             purity assessment.
           </p>

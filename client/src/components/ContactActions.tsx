@@ -47,7 +47,7 @@ export const ContactActions: React.FC<{
         </PrimaryButton>
       ) : (
         <PrimaryButton to="/contact#contact-form" variant="dark">
-          <MessageCircle className="h-4 w-4 text-[#B91C1C]" aria-hidden="true" />
+          <MessageCircle className="h-4 w-4 text-[#FFD700]" aria-hidden="true" />
           <span>Send Message</span>
         </PrimaryButton>
       )}

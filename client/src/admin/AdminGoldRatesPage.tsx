@@ -192,9 +192,9 @@ export const AdminGoldRatesPage: React.FC = () => {
               role="status"
               aria-live="polite"
               data-testid="gold-rate-save-success"
-              className="mb-6 flex items-start gap-3 rounded-lg border border-emerald-500/40 bg-emerald-950/30 p-4 text-sm text-emerald-200"
+              className="mb-6 flex items-start gap-3 rounded-lg border border-emerald-500/60 bg-emerald-50 p-4 text-sm text-emerald-900"
             >
-              <CheckCircle2 className="h-5 w-5 text-emerald-400 shrink-0 mt-0.5" />
+              <CheckCircle2 className="h-5 w-5 text-emerald-600 shrink-0 mt-0.5" />
               <span>{saveSuccess}</span>
             </div>
           )}
@@ -203,9 +203,9 @@ export const AdminGoldRatesPage: React.FC = () => {
             <div
               role="alert"
               data-testid="gold-rate-save-error"
-              className="mb-6 flex items-start gap-3 rounded-lg border border-red-500/40 bg-red-950/30 p-4 text-sm text-red-200"
+              className="mb-6 flex items-start gap-3 rounded-lg border border-red-500/60 bg-red-50 p-4 text-sm text-red-900"
             >
-              <AlertCircle className="h-5 w-5 text-red-400 shrink-0 mt-0.5" />
+              <AlertCircle className="h-5 w-5 text-red-600 shrink-0 mt-0.5" />
               <span>{saveError}</span>
             </div>
           )}
@@ -229,7 +229,7 @@ export const AdminGoldRatesPage: React.FC = () => {
                   {...register("rate22k")}
                 />
                 {errors.rate22k && (
-                  <p role="alert" className="mt-1.5 text-xs text-red-400">
+                  <p role="alert" className="mt-1.5 text-xs font-medium text-red-600">
                     {errors.rate22k.message}
                   </p>
                 )}
@@ -252,7 +252,7 @@ export const AdminGoldRatesPage: React.FC = () => {
                   {...register("rate24k")}
                 />
                 {errors.rate24k && (
-                  <p role="alert" className="mt-1.5 text-xs text-red-400">
+                  <p role="alert" className="mt-1.5 text-xs font-medium text-red-600">
                     {errors.rate24k.message}
                   </p>
                 )}
@@ -274,7 +274,7 @@ export const AdminGoldRatesPage: React.FC = () => {
                 {...register("note")}
               />
               {errors.note && (
-                <p role="alert" className="mt-1.5 text-xs text-red-400">
+                <p role="alert" className="mt-1.5 text-xs font-medium text-red-600">
                   {errors.note.message}
                 </p>
               )}

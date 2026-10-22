@@ -197,16 +197,16 @@ export const SellYourGoldPage: React.FC = () => {
       </section>
 
       {/* 8. Final CTA */}
-      <section className="py-20 bg-gradient-to-br from-[#8B0000] to-[#5C060A]">
+      <section className="py-20 bg-gradient-to-br from-[#8B0000] via-[#7F1D1D] to-[#5C060A] text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <ShieldCheck
-            className="h-10 w-10 text-[#B91C1C] mx-auto mb-3"
+            className="h-10 w-10 text-[#FFD700] mx-auto mb-3"
             aria-hidden="true"
           />
-          <h2 className="font-serif-luxury text-3xl sm:text-4xl font-bold text-[#7F1D1D]">
+          <h2 className="font-serif-luxury text-3xl sm:text-4xl font-bold text-white">
             Experience Transparent Gold Valuation Today
           </h2>
-          <p className="mt-3 text-base text-[#422020] max-w-xl mx-auto mb-8">
+          <p className="mt-3 text-base text-white/90 max-w-xl mx-auto mb-8">
             Reach out to our team to confirm required documents or schedule your in-office
             purity assessment.
           </p>
