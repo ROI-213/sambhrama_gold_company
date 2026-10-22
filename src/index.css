@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-royal-red: #8B0000;
+    --color-crimson: #A30E15;
+    --color-golden-yellow: #F59E0B;
+    --color-bright-yellow: #FFB800;
+    --color-soft-yellow: #FEF3C7;
+    --color-warm-ivory: #FFFDF7;
+    --color-white: #FFFFFF;
+    --color-dark-text: #1F1212;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-family: "Inter", system-ui, -apple-system, sans-serif;
+    background-color: #FFFDF7;
+    color: #1F1212;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  .font-serif-luxury {
+    font-family: "Playfair Display", Georgia, serif;
+  }
+
+  /* Accessible visible focus rings */
+  :focus-visible {
+    outline: 2px solid #991B1B;
+    outline-offset: 2px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Custom utility classes for Yellow, Red & White luxury palette */
+.bg-gold-gradient {
+  background: linear-gradient(135deg, #FFB800 0%, #FACC15 50%, #EAB308 100%);
+}
+
+.bg-red-royal {
+  background: linear-gradient(135deg, #8B0000 0%, #6E080D 100%);
+}
+
+.text-gold-gradient {
+  background: linear-gradient(135deg, #D97706 0%, #B45309 50%, #991B1B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-yellow-bright {
+  background: linear-gradient(135deg, #FEF08A 0%, #FACC15 50%, #F59E0B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.border-gold-subtle {
+  border-color: rgba(245, 158, 11, 0.35);
+}
+
+.shadow-gold-glow {
+  box-shadow: 0 10px 30px -10px rgba(217, 119, 6, 0.25);
+}
