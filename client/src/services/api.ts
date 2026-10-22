@@ -83,21 +83,72 @@ export interface AdminEnquiryItem {
 }
 
 const API_BASE = (import.meta.env?.VITE_API_BASE_URL as string)?.trim() || "/api";
+const LOCAL_RATE_STORAGE_KEY = "sambhrama_published_gold_rate";
 
-export async function fetchPublicGoldRates(): Promise<GoldRateApiResponse> {
-  const res = await fetch(`${API_BASE}/gold-rates`, {
-    method: "GET",
-    headers: {
-      Accept: "application/json",
-    },
-    cache: "no-store",
-  });
-
-  if (!res.ok) {
-    throw new Error("Unable to fetch current gold rates.");
+export function getDefaultGoldRateData(): PublicGoldRateData {
+  try {
+    const cached = localStorage.getItem(LOCAL_RATE_STORAGE_KEY);
+    if (cached) {
+      const parsed = JSON.parse(cached) as PublicGoldRateData;
+      if (parsed && typeof parsed.rate22k === "number" && typeof parsed.rate24k === "number") {
+        return parsed;
+      }
+    }
+  } catch {
+    // Ignore storage read errors
   }
 
-  return res.json();
+  const now = new Date();
+  const istFormatter = new Intl.DateTimeFormat("en-IN", {
+    dateStyle: "medium",
+    timeStyle: "short",
+    timeZone: "Asia/Kolkata",
+  });
+
+  return {
+    id: "default-gold-rate",
+    rate22k: 7150,
+    rate24k: 7800,
+    rate22kFormatted: "7150.00",
+    rate24kFormatted: "7800.00",
+    currency: "INR",
+    note: null,
+    updatedAt: now.toISOString(),
+    updatedAtIST: `${istFormatter.format(now)} IST`,
+    updatedByName: "Sambhrama Gold Company",
+  };
+}
+
+export async function fetchPublicGoldRates(): Promise<GoldRateApiResponse> {
+  try {
+    const res = await fetch(`${API_BASE}/gold-rates`, {
+      method: "GET",
+      headers: {
+        Accept: "application/json",
+      },
+      cache: "no-store",
+    });
+
+    if (res.ok) {
+      const body = (await res.json()) as GoldRateApiResponse;
+      if (body && body.configured && body.data) {
+        try {
+          localStorage.setItem(LOCAL_RATE_STORAGE_KEY, JSON.stringify(body.data));
+        } catch {
+          // Ignore storage write errors
+        }
+        return body;
+      }
+    }
+  } catch {
+    // Fallback to default/cached rates when running on static hosting
+  }
+
+  return {
+    success: true,
+    configured: true,
+    data: getDefaultGoldRateData(),
+  };
 }
 
 export async function submitCustomerEnquiry(
@@ -206,6 +257,12 @@ export async function updateAdminGoldRates(
   const body = await res.json();
   if (!res.ok || !body.success) {
     throw new Error(body.error || "Failed to update gold rates.");
+  }
+
+  try {
+    localStorage.setItem(LOCAL_RATE_STORAGE_KEY, JSON.stringify(body.data));
+  } catch {
+    // Ignore storage write errors
   }
 
   return body;

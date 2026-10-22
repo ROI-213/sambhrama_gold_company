@@ -1,120 +1,55 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Clock, Sparkles, Info, PhoneCall } from "lucide-react";
+import { Clock, Sparkles, Info } from "lucide-react";
 import { useGoldRates } from "../hooks/useGoldRates";
 import { formatInrPerGram } from "../services/api";
-import { companyConfig, getTelHref, getWhatsAppHref } from "../config/companyConfig";
 
 /**
- * Top bar displayed inside the global sticky header showing manually published 22K and 24K gold rates.
+ * Top bar displayed inside the global sticky header showing only today's 24K and 22K gold prices.
  * Styled in Royal Crimson Red (#8B0000) with Bright Golden Yellow (#FFB800) and Crisp White (#FFFFFF) text.
  */
 export const GoldRateBar: React.FC = () => {
   const { rateData, configured, loading } = useGoldRates();
-  const telHref = getTelHref(companyConfig.phone);
-  const whatsappHref = getWhatsAppHref(
-    companyConfig.whatsapp,
-    "Hello Sambhrama Gold Company, please share today's gold buying rate."
-  );
 
   return (
     <div className="bg-[#8B0000] border-b border-[#FFB800]/40 text-xs text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 flex flex-wrap items-center justify-between gap-2">
-        <div className="flex flex-wrap items-center gap-x-5 gap-y-1">
-          <span className="inline-flex items-center gap-1.5 font-semibold tracking-wider uppercase text-[#FFD700]">
-            <Sparkles className="h-3.5 w-3.5 text-[#FFD700]" aria-hidden="true" />
-            <span>Today&apos;s Reference Gold Rate (Per Gram)</span>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 flex flex-wrap items-center justify-center gap-x-5 gap-y-1.5">
+        <span className="inline-flex items-center gap-1.5 font-semibold tracking-wider uppercase text-[#FFD700]">
+          <Sparkles className="h-3.5 w-3.5 text-[#FFD700]" aria-hidden="true" />
+          <span>Today&apos;s Gold Price (Per Gram)</span>
+        </span>
+
+        {loading ? (
+          <span className="text-white/85" data-testid="header-rate-loading">
+            Loading today&apos;s gold price...
           </span>
-
-          {loading ? (
-            <span className="text-white/85" data-testid="header-rate-loading">
-              Checking published rates...
+        ) : configured && rateData ? (
+          <div
+            className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1"
+            data-testid="header-rate-display"
+          >
+            <span className="inline-flex items-center gap-1.5 bg-[#FFB800] text-[#7F1D1D] rounded px-3 py-0.5 shadow-xs">
+              <strong className="text-[#7F1D1D]">24 Carat (24K):</strong>
+              <span className="font-bold text-[#1F1212]">
+                {formatInrPerGram(rateData.rate24k)}/g
+              </span>
             </span>
-          ) : configured && rateData ? (
-            <div
-              className="flex flex-wrap items-center gap-x-4 gap-y-1"
-              data-testid="header-rate-display"
-            >
-              <span className="inline-flex items-center gap-1.5 bg-white text-[#7F1D1D] border border-[#FFB800] rounded px-2.5 py-0.5 shadow-xs">
-                <strong className="text-[#991B1B]">22K:</strong>
-                <span className="font-bold text-[#1F1212]">
-                  {formatInrPerGram(rateData.rate22k)}/g
-                </span>
+            <span className="inline-flex items-center gap-1.5 bg-white text-[#7F1D1D] border border-[#FFB800] rounded px-3 py-0.5 shadow-xs">
+              <strong className="text-[#991B1B]">22 Carat (22K):</strong>
+              <span className="font-bold text-[#1F1212]">
+                {formatInrPerGram(rateData.rate22k)}/g
               </span>
-              <span className="inline-flex items-center gap-1.5 bg-[#FFB800] text-[#7F1D1D] rounded px-2.5 py-0.5 shadow-xs">
-                <strong className="text-[#7F1D1D]">24K:</strong>
-                <span className="font-bold text-[#1F1212]">
-                  {formatInrPerGram(rateData.rate24k)}/g
-                </span>
-              </span>
-              <span className="inline-flex items-center gap-1 text-[11px] text-[#FEF08A]">
-                <Clock className="h-3 w-3 text-[#FFD700]" aria-hidden="true" />
-                <span>Updated: {rateData.updatedAtIST}</span>
-              </span>
-            </div>
-          ) : (
-            <span
-              className="inline-flex items-center gap-1.5 text-[#FEF08A] font-medium"
-              data-testid="header-rate-unconfigured"
-            >
-              <Info className="h-3.5 w-3.5 text-[#FFD700]" aria-hidden="true" />
-              <span>Rate not updated — Contact us for today&apos;s rate</span>
             </span>
-          )}
-        </div>
-
-        <div className="flex flex-wrap items-center gap-4 ml-auto">
-          <span className="hidden xl:inline-flex items-center gap-1.5 text-[#FEF08A] font-medium">
-            <Clock className="h-3.5 w-3.5 text-[#FFD700]" aria-hidden="true" />
-            <span>9:00 AM – 7:00 PM (Sun Holiday)</span>
+          </div>
+        ) : (
+          <span
+            className="inline-flex items-center gap-1.5 text-[#FEF08A] font-medium"
+            data-testid="header-rate-unconfigured"
+          >
+            <Info className="h-3.5 w-3.5 text-[#FFD700]" aria-hidden="true" />
+            <span>Rate not updated — Contact us for today&apos;s rate</span>
           </span>
-
-          {companyConfig.email && (
-            <a
-              href={`mailto:${companyConfig.email}`}
-              className="inline-flex items-center gap-1.5 text-white hover:text-[#FFD700] transition-colors font-medium"
-            >
-              <span>{companyConfig.email}</span>
-            </a>
-          )}
-
-          {telHref ? (
-            <a
-              href={telHref}
-              className="inline-flex items-center gap-1.5 text-white hover:text-[#FFD700] transition-colors font-semibold"
-            >
-              <PhoneCall className="h-3.5 w-3.5 text-[#FFD700]" aria-hidden="true" />
-              <span>{companyConfig.phone}</span>
-            </a>
-          ) : (
-            <Link
-              to="/contact"
-              className="inline-flex items-center gap-1.5 text-white hover:text-[#FFD700] transition-colors font-medium"
-            >
-              <PhoneCall className="h-3.5 w-3.5 text-[#FFD700]" aria-hidden="true" />
-              <span>Enquire Online</span>
-            </Link>
-          )}
-
-          {whatsappHref ? (
-            <a
-              href={whatsappHref}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 rounded bg-white px-2.5 py-0.5 text-[#7F1D1D] hover:bg-[#FEF08A] transition-colors font-semibold"
-            >
-              <span className="h-2 w-2 rounded-full bg-[#16A34A]" aria-hidden="true" />
-              <span>WhatsApp</span>
-            </a>
-          ) : (
-            <Link
-              to="/sell-your-gold#sell-gold-enquiry"
-              className="rounded bg-[#FFB800] px-2.5 py-0.5 text-[#7F1D1D] hover:bg-[#FACC15] font-bold"
-            >
-              Get Valuation
-            </Link>
-          )}
-        </div>
+        )}
       </div>
     </div>
   );
