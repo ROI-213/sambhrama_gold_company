@@ -76,8 +76,8 @@ describe("Sambhrama Gold Company Frontend Suite", () => {
 
     await waitFor(() => {
       expect(screen.getByTestId("header-rate-display")).toBeInTheDocument();
-      expect(screen.getByTestId("card-rate-22k")).toHaveTextContent("6,850.00");
-      expect(screen.getByTestId("card-rate-24k")).toHaveTextContent("7,470.00");
+      expect(screen.getByTestId("card-rate-22k")).toHaveTextContent("22 Karat Gold (916 Purity)");
+      expect(screen.getByTestId("card-rate-24k")).toHaveTextContent("24 Karat Fine Gold (999 Purity)");
     });
   });
 

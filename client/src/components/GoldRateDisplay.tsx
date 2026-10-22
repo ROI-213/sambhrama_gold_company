@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Clock, Sparkles, Info } from "lucide-react";
 import { useGoldRates } from "../hooks/useGoldRates";
-import { formatInrPerGram } from "../services/api";
 
 /**
  * Top bar displayed inside the global sticky header showing only today's 24K and 22K gold prices.
@@ -21,7 +20,7 @@ export const GoldRateBar: React.FC = () => {
 
         {loading ? (
           <span className="text-white/85" data-testid="header-rate-loading">
-            Loading today&apos;s gold price...
+            Loading today&apos;s gold rate details...
           </span>
         ) : configured && rateData ? (
           <div
@@ -29,16 +28,10 @@ export const GoldRateBar: React.FC = () => {
             data-testid="header-rate-display"
           >
             <span className="inline-flex items-center gap-1.5 bg-[#FFB800] text-[#7F1D1D] rounded px-3 py-0.5 shadow-xs">
-              <strong className="text-[#7F1D1D]">24 Carat (24K):</strong>
-              <span className="font-bold text-[#1F1212]">
-                {formatInrPerGram(rateData.rate24k)}/g
-              </span>
+              <strong className="text-[#7F1D1D]">24 Carat (24K)</strong>
             </span>
             <span className="inline-flex items-center gap-1.5 bg-white text-[#7F1D1D] border border-[#FFB800] rounded px-3 py-0.5 shadow-xs">
-              <strong className="text-[#991B1B]">22 Carat (22K):</strong>
-              <span className="font-bold text-[#1F1212]">
-                {formatInrPerGram(rateData.rate22k)}/g
-              </span>
+              <strong className="text-[#991B1B]">22 Carat (22K)</strong>
             </span>
           </div>
         ) : (
@@ -92,55 +85,37 @@ export const GoldRateCard: React.FC<{ compact?: boolean }> = ({ compact = false 
       ) : configured && rateData ? (
         <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-6">
           {/* 22K Card: Warm Golden Yellow & White */}
-          <div className="rounded-xl border-2 border-[#F59E0B] bg-gradient-to-br from-[#FFFBEB] to-white p-6 flex flex-col justify-between shadow-sm">
-            <div>
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-widest text-[#991B1B]">
-                  22 Karat Gold (916 Purity)
-                </span>
-                <span className="rounded-full bg-[#FFB800] px-3 py-0.5 text-xs font-bold text-[#7F1D1D]">
-                  22K Standard
-                </span>
-              </div>
-              <p
-                className="mt-4 font-serif-luxury text-3xl sm:text-4xl font-bold text-[#7F1D1D]"
-                data-testid="card-rate-22k"
-              >
-                {formatInrPerGram(rateData.rate22k)}
-                <span className="text-base font-sans font-normal text-[#573030]">
-                  {" "}
-                  / gram
-                </span>
-              </p>
+          <div
+            className="rounded-xl border-2 border-[#F59E0B] bg-gradient-to-br from-[#FFFBEB] to-white p-6 flex flex-col justify-between shadow-sm"
+            data-testid="card-rate-22k"
+          >
+            <div className="flex items-center justify-between">
+              <span className="text-xs font-bold uppercase tracking-widest text-[#991B1B]">
+                22 Karat Gold (916 Purity)
+              </span>
+              <span className="rounded-full bg-[#FFB800] px-3 py-0.5 text-xs font-bold text-[#7F1D1D]">
+                22K Standard
+              </span>
             </div>
-            <p className="mt-3 text-xs text-[#4A2525]">
+            <p className="mt-4 text-xs text-[#4A2525]">
               Applicable reference rate for 22K gold ornaments and hallmarked jewellery.
             </p>
           </div>
 
           {/* 24K Card: Royal Crimson Red with Golden Yellow & White */}
-          <div className="rounded-xl border-2 border-[#FFB800] bg-gradient-to-br from-[#8B0000] to-[#5C060A] p-6 flex flex-col justify-between text-white shadow-md">
-            <div>
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-widest text-[#FFD700]">
-                  24 Karat Fine Gold (999 Purity)
-                </span>
-                <span className="rounded-full bg-white px-3 py-0.5 text-xs font-bold text-[#8B0000]">
-                  24K Fine
-                </span>
-              </div>
-              <p
-                className="mt-4 font-serif-luxury text-3xl sm:text-4xl font-bold text-[#FFD700]"
-                data-testid="card-rate-24k"
-              >
-                {formatInrPerGram(rateData.rate24k)}
-                <span className="text-base font-sans font-normal text-white/85">
-                  {" "}
-                  / gram
-                </span>
-              </p>
+          <div
+            className="rounded-xl border-2 border-[#FFB800] bg-gradient-to-br from-[#8B0000] to-[#5C060A] p-6 flex flex-col justify-between text-white shadow-md"
+            data-testid="card-rate-24k"
+          >
+            <div className="flex items-center justify-between">
+              <span className="text-xs font-bold uppercase tracking-widest text-[#FFD700]">
+                24 Karat Fine Gold (999 Purity)
+              </span>
+              <span className="rounded-full bg-white px-3 py-0.5 text-xs font-bold text-[#8B0000]">
+                24K Fine
+              </span>
             </div>
-            <p className="mt-3 text-xs text-white/85">
+            <p className="mt-4 text-xs text-white/85">
               Applicable reference rate for 24K coins, bullion, and fine gold articles.
             </p>
           </div>
