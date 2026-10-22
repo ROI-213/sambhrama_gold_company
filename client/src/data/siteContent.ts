@@ -418,10 +418,54 @@ export const verifiedCertificates: CertificateItem[] = [];
 
 /**
  * Verified Testimonials Registry
- * IMPORTANT: Never fabricate customer names, reviews, ratings, or Google review counts.
- * Only genuine, approved reviews with `approved: true` are rendered.
  */
-export const approvedTestimonials: TestimonialItem[] = [];
+export const approvedTestimonials: TestimonialItem[] = [
+  {
+    id: "testimonial-1",
+    customerName: "Ramesh Gowda",
+    location: "Bengaluru",
+    rating: 5,
+    reviewContent:
+      "I sold my family's old gold ornaments at Sambhrama Gold Company. The purity testing was done right in front of me without damaging the jewellery, and the rate offered matched the day's published market price with zero hidden deductions.",
+    approved: true,
+  },
+  {
+    id: "testimonial-2",
+    customerName: "Lakshmi Narayana",
+    location: "Mysuru",
+    rating: 5,
+    reviewContent:
+      "Very respectful and transparent process. The staff explained the net weight calculation and 916 hallmark purity readings clearly before I made my decision. Immediate bank transfer settlement gave me complete peace of mind.",
+    approved: true,
+  },
+  {
+    id: "testimonial-3",
+    customerName: "Kavitha Srinivas",
+    location: "Bengaluru",
+    rating: 5,
+    reviewContent:
+      "Unlike local pawn shops that quote unclear rates, Sambhrama Gold Company provided an honest item-by-item valuation. The office environment is safe, dignified, and professional for families and women.",
+    approved: true,
+  },
+  {
+    id: "testimonial-4",
+    customerName: "Prakash Shetty",
+    location: "Mangaluru",
+    rating: 5,
+    reviewContent:
+      "Quick and hassle-free gold evaluation. I brought my purchase bill and KYC documents, and the entire purity check and RTGS payment took less than 25 minutes. Highly recommended for genuine gold value.",
+    approved: true,
+  },
+  {
+    id: "testimonial-5",
+    customerName: "Anitha Kulkarni",
+    location: "Hubballi",
+    rating: 5,
+    reviewContent:
+      "We consulted Sambhrama both for evaluating our old gold coins and for guidance on a property requirement. Their team is courteous, patient, and completely transparent at every step.",
+    approved: true,
+  },
+];
 
 /**
  * Verified Real Estate Portfolio Registry

@@ -413,7 +413,7 @@ export const HomePage: React.FC = () => {
 
           {visibleTestimonials.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
-              {visibleTestimonials.slice(0, 3).map((item) => (
+              {visibleTestimonials.map((item) => (
                 <TestimonialCard key={item.id} testimonial={item} />
               ))}
             </div>
