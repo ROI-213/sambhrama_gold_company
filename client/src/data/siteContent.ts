@@ -11,6 +11,8 @@ export interface FeatureItem {
   id: string;
   title: string;
   description: string;
+  imageUrl: string;
+  imageAlt: string;
   iconName:
     | "Scale"
     | "Microscope"
@@ -18,6 +20,7 @@ export interface FeatureItem {
     | "ClipboardCheck"
     | "ShieldCheck"
     | "HeartHandshake"
+    | "Users"
     | "Award"
     | "Eye"
     | "Sparkles";
@@ -99,6 +102,8 @@ export const whyChooseFeatures: FeatureItem[] = [
     title: "Transparent Gold Evaluation",
     description:
       "Every evaluation is conducted openly in your presence with clear explanations of weight and purity readings.",
+    imageUrl: "/images/pillar-evaluation.jpg",
+    imageAlt: "Precision digital weighing scale evaluating traditional gold jewellery",
     iconName: "Eye",
   },
   {
@@ -106,6 +111,8 @@ export const whyChooseFeatures: FeatureItem[] = [
     title: "Professional Testing",
     description:
       "We utilize non-destructive scientific purity assessment methodologies so your ornaments remain unharmed during inspection.",
+    imageUrl: "/images/pillar-testing.jpg",
+    imageAlt: "Scientific laboratory microscope testing gold purity",
     iconName: "Microscope",
   },
   {
@@ -113,6 +120,8 @@ export const whyChooseFeatures: FeatureItem[] = [
     title: "Competitive Pricing",
     description:
       "Valuations are aligned with our published 22K and 24K reference rates per gram, subject to verified purity and net weight.",
+    imageUrl: "/images/pillar-pricing.jpg",
+    imageAlt: "Stacks of gleaming gold coins representing competitive market pricing",
     iconName: "IndianRupee",
   },
   {
@@ -120,6 +129,8 @@ export const whyChooseFeatures: FeatureItem[] = [
     title: "Simple Selling Process",
     description:
       "A structured, respectful step-by-step workflow designed to eliminate unnecessary delays or complicated paperwork.",
+    imageUrl: "/images/pillar-process.jpg",
+    imageAlt: "Hand signing a streamlined gold valuation agreement on a clipboard",
     iconName: "ClipboardCheck",
   },
   {
@@ -127,6 +138,8 @@ export const whyChooseFeatures: FeatureItem[] = [
     title: "Secure Transactions",
     description:
       "Complete documentation, identity verification compliance, and secure settlement handling in a confidential office environment.",
+    imageUrl: "/images/pillar-security.jpg",
+    imageAlt: "Golden security vault safe representing secure gold transactions",
     iconName: "ShieldCheck",
   },
   {
@@ -134,7 +147,9 @@ export const whyChooseFeatures: FeatureItem[] = [
     title: "Customer-Focused Service",
     description:
       "Dedicated specialists provide courteous guidance with zero obligation until you formally confirm the valuation offer.",
-    iconName: "HeartHandshake",
+    imageUrl: "/images/pillar-service.jpg",
+    imageAlt: "Specialist presenting gold necklace in a red velvet box to a customer",
+    iconName: "Users",
   },
 ];
 

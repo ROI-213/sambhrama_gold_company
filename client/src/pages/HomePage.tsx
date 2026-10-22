@@ -40,6 +40,7 @@ const iconMap = {
   ClipboardCheck,
   ShieldCheck,
   HeartHandshake,
+  Users,
   Scale: Eye,
   Award: ShieldCheck,
   Sparkles,
@@ -260,35 +261,73 @@ export const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* 4. Why Choose Sambhrama: Warm Yellow Section with Crisp White Cards */}
-      <section className="py-20 sm:py-28 bg-[#FFFBEB] border-b border-[#F59E0B]/40">
+      {/* 4. Why Choose Sambhrama: Warm Ivory Section with Split Image-and-Text Pillar Cards */}
+      <section className="py-20 sm:py-28 bg-[#FDF8EE] border-b border-[#F59E0B]/40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading
-            eyebrow="Why Choose Sambhrama"
-            title="Six Pillars of Our Service Commitment"
-            subtitle="Every interaction at Sambhrama Gold Company is guided by precision, clarity, and respect for your time and assets."
-          />
+          {/* Custom Section Heading matching reference typography */}
+          <div className="max-w-3xl text-center mx-auto mb-14">
+            <div className="inline-flex items-center gap-3 text-xs font-bold uppercase tracking-[0.22em] text-[#991B1B] mb-3">
+              <span className="h-[1.5px] w-7 bg-[#D97706]" aria-hidden="true" />
+              <span>Why Choose Sambhrama</span>
+              <span className="h-[1.5px] w-7 bg-[#D97706]" aria-hidden="true" />
+            </div>
+            <h2 className="font-serif-luxury text-3xl sm:text-4xl lg:text-[2.7rem] font-bold leading-tight">
+              <span className="text-[#1F1212]">Six Pillars </span>
+              <span className="text-[#B45309]">of </span>
+              <span className="text-[#8B0000]">Our Service Commitment</span>
+            </h2>
+            <p className="mt-3.5 text-sm sm:text-base leading-relaxed text-[#3B1818] max-w-2xl mx-auto">
+              Every interaction at Sambhrama Gold Company is guided by precision, clarity, and respect
+              for your time and assets.
+            </p>
+          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-7 gap-y-9">
             {whyChooseFeatures.map((feature) => {
               const IconComponent = iconMap[feature.iconName] || ShieldCheck;
               return (
                 <div
                   key={feature.id}
-                  className="rounded-xl border-2 border-[#F59E0B]/50 bg-white p-7 hover:border-[#8B0000] transition-all shadow-md"
+                  className="group relative rounded-2xl border border-[#F59E0B]/35 bg-white shadow-[0_10px_28px_rgba(127,29,29,0.08)] hover:shadow-[0_14px_34px_rgba(127,29,29,0.14)] hover:border-[#F59E0B]/70 transition-all duration-300 overflow-visible"
                 >
-                  <div className="h-12 w-12 rounded-lg bg-[#8B0000] border border-[#FFB800] flex items-center justify-center mb-5">
-                    <IconComponent
-                      className="h-6 w-6 text-[#FFD700]"
-                      aria-hidden="true"
-                    />
+                  {/* Top-left subtle white circular tab behind the icon badge */}
+                  <div
+                    className="pointer-events-none absolute -top-3.5 left-3.5 h-16 w-16 rounded-full bg-white shadow-[0_-3px_10px_rgba(127,29,29,0.04)]"
+                    aria-hidden="true"
+                  />
+
+                  {/* Inner clipped container for right-side image & content */}
+                  <div className="relative overflow-hidden rounded-2xl min-h-[220px] flex">
+                    {/* Right-side illustration with smooth left-edge white gradient fade */}
+                    <div className="absolute inset-y-0 right-0 w-[48%] z-0 overflow-hidden">
+                      <img
+                        src={feature.imageUrl}
+                        alt={feature.imageAlt}
+                        loading="lazy"
+                        className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                      />
+                      <div
+                        className="absolute inset-0 bg-gradient-to-r from-white via-white/55 to-transparent"
+                        aria-hidden="true"
+                      />
+                    </div>
+
+                    {/* Left-side icon, title, and description */}
+                    <div className="relative z-10 w-[64%] p-6 pr-3 flex flex-col justify-start">
+                      <div className="h-12 w-12 rounded-full bg-gradient-to-b from-[#8B0000] to-[#4A0407] border-2 border-[#F59E0B] flex items-center justify-center shadow-md mb-4 shrink-0">
+                        <IconComponent
+                          className="h-5 w-5 text-[#FFD700]"
+                          aria-hidden="true"
+                        />
+                      </div>
+                      <h3 className="font-serif-luxury text-lg sm:text-[1.15rem] font-bold text-[#8B0000] leading-snug">
+                        {feature.title}
+                      </h3>
+                      <p className="mt-2 text-xs sm:text-[13px] leading-relaxed text-[#3B1818]">
+                        {feature.description}
+                      </p>
+                    </div>
                   </div>
-                  <h3 className="font-serif-luxury text-xl font-bold text-[#7F1D1D]">
-                    {feature.title}
-                  </h3>
-                  <p className="mt-3 text-sm leading-relaxed text-[#4A2525]">
-                    {feature.description}
-                  </p>
                 </div>
               );
             })}
