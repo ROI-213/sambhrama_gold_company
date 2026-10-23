@@ -44,10 +44,10 @@ export const Header: React.FC = () => {
     }`;
 
   return (
-    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b-2 border-[#FFB800]/50 shadow-sm">
+    <>
       <GoldRateBar />
-
-      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+      <header className="sticky top-0 z-50 w-full bg-white/95 backdrop-blur-md border-b-2 border-[#FFB800]/50 shadow-md">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-20 gap-2">
           {/* Brand Logo */}
           <Link
@@ -291,6 +291,7 @@ export const Header: React.FC = () => {
           </div>
         </nav>
       )}
-    </header>
+      </header>
+    </>
   );
 };

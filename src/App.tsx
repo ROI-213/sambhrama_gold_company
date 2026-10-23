@@ -27,7 +27,7 @@ import { AdminAuthProvider } from "./admin/AdminAuthContext";
 
 const PublicLayout: React.FC = () => {
   return (
-    <div className="min-h-screen flex flex-col bg-[#FFFDF7] text-[#7F1D1D] overflow-x-hidden">
+    <div className="min-h-screen flex flex-col bg-[#FFFDF7] text-[#7F1D1D]">
       <a
         href="#main-content"
         className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:rounded-md focus:bg-[#FFB800] focus:px-4 focus:py-2 focus:text-xs focus:font-bold focus:text-[#3D070A]"
