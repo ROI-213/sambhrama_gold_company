@@ -57,7 +57,7 @@ export const TestimonialCard: React.FC<{ testimonial: TestimonialItem }> = ({
   testimonial,
 }) => {
   return (
-    <article className="rounded-xl border border-[#F59E0B]/45 bg-white shadow-sm p-6 sm:p-7 flex flex-col justify-between">
+    <article className="h-full rounded-xl border border-[#F59E0B]/45 bg-white shadow-sm p-6 sm:p-7 flex flex-col justify-between">
       <div>
         <div className="flex items-center justify-between mb-4">
           <Quote className="h-7 w-7 text-[#B91C1C]/60" aria-hidden="true" />
@@ -120,5 +120,41 @@ export const TestimonialCard: React.FC<{ testimonial: TestimonialItem }> = ({
         </div>
       </div>
     </article>
+  );
+};
+
+export const TestimonialMarquee: React.FC<{ items: TestimonialItem[] }> = ({
+  items,
+}) => {
+  const repeatedItems = [...items, ...items];
+
+  return (
+    <div className="relative w-full overflow-hidden py-2">
+      <style>{`
+        @keyframes sambhrama-testimonial-marquee {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+        .sambhrama-marquee-track {
+          display: flex;
+          width: max-content;
+          animation: sambhrama-testimonial-marquee 32s linear infinite;
+        }
+        .sambhrama-marquee-track:hover {
+          animation-play-state: paused;
+        }
+      `}</style>
+      <div className="sambhrama-marquee-track items-stretch">
+        {repeatedItems.map((item, idx) => (
+          <div
+            key={`${item.id}-${idx}`}
+            className="w-[300px] sm:w-[370px] shrink-0 pr-6"
+            aria-hidden={idx >= items.length ? "true" : undefined}
+          >
+            <TestimonialCard testimonial={item} />
+          </div>
+        ))}
+      </div>
+    </div>
   );
 };

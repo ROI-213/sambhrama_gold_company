@@ -3,7 +3,7 @@ import { MessageSquareQuote, ExternalLink, ShieldCheck } from "lucide-react";
 import { usePageMeta } from "../hooks/usePageMeta";
 import { HeroBanner } from "../components/HeroBanner";
 import { SectionHeading } from "../components/SectionHeading";
-import { TestimonialCard } from "../components/FAQAndTestimonial";
+import { TestimonialMarquee } from "../components/FAQAndTestimonial";
 import { PrimaryButton } from "../components/PrimaryButton";
 import { approvedTestimonials } from "../data/siteContent";
 import { companyConfig } from "../config/companyConfig";
@@ -42,11 +42,7 @@ export const TestimonialsPage: React.FC = () => {
           />
 
           {approvedList.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
-              {approvedList.map((item) => (
-                <TestimonialCard key={item.id} testimonial={item} />
-              ))}
-            </div>
+            <TestimonialMarquee items={approvedList} />
           ) : (
             <div
               className="rounded-xl border border-[#F59E0B]/50 bg-white shadow-sm p-8 sm:p-12 text-center max-w-3xl mx-auto"

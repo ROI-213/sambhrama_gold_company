@@ -106,7 +106,7 @@ describe("Sambhrama Gold Company Frontend Suite", () => {
     );
 
     await waitFor(() => {
-      expect(screen.getByText(/Ramesh Gowda/i)).toBeInTheDocument();
+      expect(screen.getAllByText(/Ramesh Gowda/i).length).toBeGreaterThan(0);
     });
     unmountTestimonials();
 

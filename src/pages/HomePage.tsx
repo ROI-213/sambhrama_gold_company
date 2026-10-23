@@ -21,7 +21,7 @@ import { PrimaryButton } from "../components/PrimaryButton";
 import { SectionHeading } from "../components/SectionHeading";
 import { GoldRateCard } from "../components/GoldRateDisplay";
 import { ServiceCard, VentureCard } from "../components/ServiceAndVentureCards";
-import { TestimonialCard } from "../components/FAQAndTestimonial";
+import { TestimonialMarquee } from "../components/FAQAndTestimonial";
 import { EnquiryForm } from "../components/EnquiryForm";
 import { HeroValuationCard } from "../components/HeroValuationCard";
 import { ContactActions } from "../components/ContactActions";
@@ -412,10 +412,8 @@ export const HomePage: React.FC = () => {
           />
 
           {visibleTestimonials.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
-              {visibleTestimonials.map((item) => (
-                <TestimonialCard key={item.id} testimonial={item} />
-              ))}
+            <div className="mb-10">
+              <TestimonialMarquee items={visibleTestimonials} />
             </div>
           ) : (
             <div className="rounded-xl border-2 border-[#F59E0B]/50 bg-[#FFFBEB] p-8 sm:p-10 text-center max-w-2xl mx-auto mb-10 shadow-sm">
