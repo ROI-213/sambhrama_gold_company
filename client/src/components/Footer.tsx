@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Phone, Mail, MapPin, Clock, Lock } from "lucide-react";
+import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import {
   companyConfig,
   getTelHref,
@@ -207,13 +207,6 @@ export const Footer: React.FC = () => {
               className="hover:text-[#FFD700] transition-colors"
             >
               Terms &amp; Conditions
-            </Link>
-            <Link
-              to="/admin"
-              className="inline-flex items-center gap-1 text-[#FFD700] hover:underline"
-            >
-              <Lock className="h-3 w-3" aria-hidden="true" />
-              <span>Admin Portal</span>
             </Link>
           </div>
         </div>

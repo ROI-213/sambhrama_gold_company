@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { PhoneCall, MessageCircle, ArrowRight } from "lucide-react";
 import {
   companyConfig,
@@ -56,38 +55,39 @@ export const ContactActions: React.FC<{
 };
 
 /**
- * FloatingWhatsAppButton — Renders a floating quick-action button in the bottom-right corner.
- * Uses verified WhatsApp number when configured, or links to the Contact / Enquiry section if unconfigured.
+ * FloatingWhatsAppButton — Renders floating icon-only Call and WhatsApp buttons in the bottom-right corner.
+ * Call button sits directly above the WhatsApp button, both using +91 77602 34395.
  */
 export const FloatingWhatsAppButton: React.FC = () => {
-  const whatsappHref = getWhatsAppHref(
-    companyConfig.whatsapp,
-    "Hello Sambhrama Gold Company, I would like to enquire about selling gold / your services."
-  );
+  const telHref = getTelHref(companyConfig.phone) || "tel:+917760234395";
+  const whatsappHref =
+    getWhatsAppHref(
+      companyConfig.whatsapp,
+      "Hello Sambhrama Gold Company, I would like to enquire about selling gold / your services."
+    ) ||
+    "https://wa.me/917760234395?text=Hello%20Sambhrama%20Gold%20Company%2C%20I%20would%20like%20to%20enquire%20about%20selling%20gold%20%2F%20your%20services.";
 
-  if (whatsappHref) {
-    return (
+  return (
+    <div className="fixed bottom-5 right-5 z-40 flex flex-col items-center gap-3">
+      <a
+        href={telHref}
+        aria-label="Call Sambhrama Gold Company at +91 77602 34395"
+        title="Call +91 77602 34395"
+        className="inline-flex h-12 w-12 items-center justify-center rounded-full border-2 border-white bg-gradient-to-b from-[#FFB800] to-[#D97706] text-[#3D070A] shadow-xl hover:brightness-105 transition-transform hover:scale-105"
+      >
+        <PhoneCall className="h-5 w-5" aria-hidden="true" />
+      </a>
+
       <a
         href={whatsappHref}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Chat with Sambhrama Gold Company on WhatsApp"
-        className="fixed bottom-6 right-6 z-40 inline-flex items-center gap-2 rounded-full bg-[#25D366] px-4 py-3 text-xs font-semibold text-[#3D070A] shadow-xl hover:brightness-105 transition-transform hover:scale-105"
+        aria-label="Chat with Sambhrama Gold Company on WhatsApp (+91 77602 34395)"
+        title="WhatsApp +91 77602 34395"
+        className="inline-flex h-12 w-12 items-center justify-center rounded-full border-2 border-white bg-[#25D366] text-white shadow-xl hover:brightness-105 transition-transform hover:scale-105"
       >
-        <MessageCircle className="h-5 w-5 fill-[#3D070A]" aria-hidden="true" />
-        <span className="hidden sm:inline">WhatsApp Us</span>
+        <MessageCircle className="h-6 w-6 fill-white text-[#25D366]" aria-hidden="true" />
       </a>
-    );
-  }
-
-  return (
-    <Link
-      to="/contact"
-      aria-label="Contact Sambhrama Gold Company"
-      className="fixed bottom-6 right-6 z-40 inline-flex items-center gap-2 rounded-full border border-[#FFB800] bg-[#FFFBEB] px-4 py-3 text-xs font-semibold text-[#991B1B] shadow-gold-glow hover:bg-[#FEF3C7]/60 transition-transform hover:scale-105"
-    >
-      <MessageCircle className="h-5 w-5 text-[#B91C1C]" aria-hidden="true" />
-      <span className="hidden sm:inline">Quick Enquiry</span>
-    </Link>
+    </div>
   );
 };
