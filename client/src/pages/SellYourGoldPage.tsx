@@ -35,7 +35,11 @@ export const SellYourGoldPage: React.FC = () => {
         <PrimaryButton href="#sell-gold-enquiry" variant="gold">
           Full Valuation Form
         </PrimaryButton>
-        <PrimaryButton to="/contact" variant="outline">
+        <PrimaryButton
+          href="https://www.google.com/maps?q=12.992435455322266,77.57848358154297&z=17&hl=en"
+          external
+          variant="outline"
+        >
           Visit Our Office
         </PrimaryButton>
       </HeroBanner>

@@ -66,12 +66,24 @@ export const ContactPage: React.FC = () => {
                     </div>
                     <div>
                       <strong className="block text-xs uppercase tracking-wider text-[#991B1B]">
-                        Office Address
+                        Office Location
                       </strong>
-                      <span className="text-[#3B1818] mt-0.5 block">
-                        {companyConfig.address ||
-                          "Submit an enquiry using the contact form to receive office visit directions and appointment confirmation."}
-                      </span>
+                      {companyConfig.mapsUrl ? (
+                        <a
+                          href={companyConfig.mapsUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-[#7F1D1D] hover:text-[#B91C1C] hover:underline font-medium mt-0.5 block"
+                        >
+                          {companyConfig.address ||
+                            "Open Office Location on Google Maps"}
+                        </a>
+                      ) : (
+                        <span className="text-[#3B1818] mt-0.5 block">
+                          {companyConfig.address ||
+                            "Submit an enquiry using the contact form to receive office visit directions and appointment confirmation."}
+                        </span>
+                      )}
                     </div>
                   </li>
 

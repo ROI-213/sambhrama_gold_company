@@ -41,8 +41,12 @@ export const companyConfig: CompanyConfig = {
   workingHours:
     (env.VITE_COMPANY_HOURS as string)?.trim() ||
     "Morning 9:00 AM to 7:00 PM (Monday – Saturday) | Sunday is Holiday",
-  mapsUrl: (env.VITE_COMPANY_MAPS_URL as string)?.trim() || "",
-  mapsEmbedUrl: (env.VITE_COMPANY_MAPS_EMBED_URL as string)?.trim() || "",
+  mapsUrl:
+    (env.VITE_COMPANY_MAPS_URL as string)?.trim() ||
+    "https://www.google.com/maps?q=12.992435455322266,77.57848358154297&z=17&hl=en",
+  mapsEmbedUrl:
+    (env.VITE_COMPANY_MAPS_EMBED_URL as string)?.trim() ||
+    "https://maps.google.com/maps?q=12.992435455322266,77.57848358154297&z=17&hl=en&output=embed",
   googleBusinessReviewUrl:
     (env.VITE_GOOGLE_BUSINESS_REVIEW_URL as string)?.trim() || "",
   socialLinks: {

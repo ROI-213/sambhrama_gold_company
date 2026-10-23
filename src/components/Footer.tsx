@@ -134,10 +134,21 @@ export const Footer: React.FC = () => {
             <ul className="space-y-3 text-sm text-white/90">
               <li className="flex items-start gap-2.5">
                 <MapPin className="h-4 w-4 text-[#FFD700] shrink-0 mt-1" aria-hidden="true" />
-                <span>
-                  {companyConfig.address ||
-                    "Contact our team via the online enquiry form for office visit directions."}
-                </span>
+                {companyConfig.mapsUrl ? (
+                  <a
+                    href={companyConfig.mapsUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-[#FFD700] underline-offset-2 hover:underline transition-colors"
+                  >
+                    {companyConfig.address || "View Our Office Location on Google Maps"}
+                  </a>
+                ) : (
+                  <span>
+                    {companyConfig.address ||
+                      "Contact our team via the online enquiry form for office visit directions."}
+                  </span>
+                )}
               </li>
               <li className="flex items-center gap-2.5">
                 <Phone className="h-4 w-4 text-[#FFD700] shrink-0" aria-hidden="true" />
