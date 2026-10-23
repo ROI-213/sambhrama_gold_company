@@ -151,24 +151,91 @@ export async function fetchPublicGoldRates(): Promise<GoldRateApiResponse> {
   };
 }
 
+export const ENQUIRY_WHATSAPP_NUMBER = "917760234395";
+
+export function buildEnquiryWhatsAppUrl(payload: EnquiryPayload): string {
+  const typeLabels: Record<EnquiryPayload["enquiryType"], string> = {
+    QUICK: "Quick Enquiry",
+    SELL_GOLD: "Sell Your Gold / Valuation Enquiry",
+    REAL_ESTATE: "Real Estate Division Enquiry",
+    LOANS: "Loans Division Enquiry",
+    CONTACT: "Contact Us Enquiry",
+  };
+
+  const lines = [
+    `*New Website Enquiry — Sambhrama Gold Company*`,
+    `*Enquiry Type:* ${typeLabels[payload.enquiryType] || payload.enquiryType}`,
+    `*Name:* ${payload.fullName}`,
+    `*Mobile:* ${payload.mobile}`,
+    payload.email ? `*Email:* ${payload.email}` : null,
+    payload.city ? `*City / Location:* ${payload.city}` : null,
+    payload.serviceRequired ? `*Service Required:* ${payload.serviceRequired}` : null,
+    payload.goldType ? `*Gold Type:* ${payload.goldType}` : null,
+    payload.approxWeightGrams
+      ? `*Approx. Gold Weight:* ${payload.approxWeightGrams} grams`
+      : null,
+    payload.propertyRequirement
+      ? `*Property Requirement:* ${payload.propertyRequirement}`
+      : null,
+    payload.preferredLocation
+      ? `*Preferred Location:* ${payload.preferredLocation}`
+      : null,
+    payload.loanType ? `*Loan Type:* ${payload.loanType}` : null,
+    payload.loanRequirement ? `*Loan Requirement:* ${payload.loanRequirement}` : null,
+    payload.subject ? `*Subject:* ${payload.subject}` : null,
+    payload.message ? `*Message / Details:* ${payload.message}` : null,
+  ].filter(Boolean);
+
+  const text = lines.join("\n");
+  return `https://wa.me/${ENQUIRY_WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
+}
+
 export async function submitCustomerEnquiry(
   payload: EnquiryPayload
 ): Promise<EnquirySubmissionResponse> {
-  const res = await fetch(`${API_BASE}/enquiries`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Accept: "application/json",
-    },
-    body: JSON.stringify(payload),
-  });
+  const whatsappUrl = buildEnquiryWhatsAppUrl(payload);
 
-  const body = await res.json();
-  if (!res.ok || !body.success) {
-    throw new Error(body.error || "Failed to submit your enquiry. Please try again.");
+  if (typeof window !== "undefined") {
+    const popup = window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+    if (!popup) {
+      window.location.href = whatsappUrl;
+    }
   }
 
-  return body;
+  try {
+    const res = await fetch(`${API_BASE}/enquiries`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify(payload),
+    });
+
+    if (res.ok) {
+      const body = await res.json();
+      if (body && body.success) {
+        return {
+          ...body,
+          message:
+            "Thank you! Redirecting your enquiry to our official WhatsApp (+91 77602 34395).",
+        };
+      }
+    }
+  } catch {
+    // Static deployment fallback — WhatsApp redirection already triggered above
+  }
+
+  return {
+    success: true,
+    message:
+      "Thank you! Redirecting your enquiry to our official WhatsApp (+91 77602 34395).",
+    data: {
+      id: `wa-${Date.now()}`,
+      enquiryType: payload.enquiryType,
+      createdAt: new Date().toISOString(),
+    },
+  };
 }
 
 export async function loginAdminRequest(credentials: {

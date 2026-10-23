@@ -156,9 +156,9 @@ export const ContactPage: React.FC = () => {
                           href={whatsappHref}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-[#25D366] hover:underline font-medium mt-0.5 block"
+                          className="text-[#15803D] hover:underline font-semibold mt-0.5 block"
                         >
-                          Chat with us on WhatsApp
+                          Chat with us on WhatsApp ({companyConfig.whatsapp})
                         </a>
                       </div>
                     </li>

@@ -34,8 +34,8 @@ export const companyConfig: CompanyConfig = {
     (env.VITE_COMPANY_TAGLINE as string)?.trim() ||
     "Your Gold. Its True Value. Our Commitment.",
   heroHeading: "Your Gold. Its True Value. Our Commitment.",
-  phone: (env.VITE_COMPANY_PHONE as string)?.trim() || "",
-  whatsapp: (env.VITE_COMPANY_WHATSAPP as string)?.trim() || "",
+  phone: (env.VITE_COMPANY_PHONE as string)?.trim() || "+91 77602 34395",
+  whatsapp: (env.VITE_COMPANY_WHATSAPP as string)?.trim() || "+91 77602 34395",
   email: (env.VITE_COMPANY_EMAIL as string)?.trim() || "sowmyats209@gmail.com",
   address: (env.VITE_COMPANY_ADDRESS as string)?.trim() || "",
   workingHours:
