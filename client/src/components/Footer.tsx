@@ -195,10 +195,21 @@ export const Footer: React.FC = () => {
 
         {/* Bottom Legal Bar */}
         <div className="mt-12 pt-8 border-t border-[#FFB800]/30 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/80">
-          <p>
-            &copy; {new Date().getFullYear()} {companyConfig.companyName}. All rights reserved.
-          </p>
-          <div className="flex flex-wrap items-center gap-6">
+          <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 text-center sm:text-left">
+            <p>
+              &copy; {new Date().getFullYear()} {companyConfig.companyName}. All rights reserved.
+            </p>
+            <span className="hidden sm:inline text-white/40">|</span>
+            <a
+              href="https://wa.me/919945379333?text=Hello%20ROI%20Infotech%2C%20I%20would%20like%20to%20enquire%20about%20your%20services."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-bold tracking-wider uppercase text-[#FFD700] hover:text-white hover:underline transition-colors"
+            >
+              DEVELOPED BY ROI INFOTECH
+            </a>
+          </div>
+          <div className="flex flex-wrap items-center justify-center gap-6">
             <Link to="/privacy-policy" className="hover:text-[#FFD700] transition-colors">
               Privacy Policy
             </Link>
