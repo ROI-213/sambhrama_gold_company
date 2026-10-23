@@ -41,7 +41,7 @@ export const ContactPage: React.FC = () => {
         compact
       />
 
-      <section className="py-20 sm:py-28 bg-[#FFFDF7] border-b border-[#F59E0B]/50">
+      <section className="py-10 sm:py-14 bg-[#FFFDF7] border-b border-[#F59E0B]/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
             {/* Left Column: Verified Contact Information */}

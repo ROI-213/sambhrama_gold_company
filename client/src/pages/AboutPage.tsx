@@ -30,7 +30,7 @@ export const AboutPage: React.FC = () => {
       />
 
       {/* Company Introduction & Editable History / Background */}
-      <section className="py-20 sm:py-28 bg-[#FFFDF7] text-[#3D070A]">
+      <section className="py-10 sm:py-14 bg-[#FFFDF7] text-[#3D070A]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-7">
@@ -88,7 +88,7 @@ export const AboutPage: React.FC = () => {
       </section>
 
       {/* Mission & Vision */}
-      <section className="py-20 sm:py-24 bg-[#FFFBEB] border-y border-[#F59E0B]/50">
+      <section className="py-10 sm:py-14 bg-[#FFFBEB] border-y border-[#F59E0B]/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="rounded-xl border border-[#F59E0B]/50 bg-[#FFFDF7] p-8 sm:p-10">
@@ -130,7 +130,7 @@ export const AboutPage: React.FC = () => {
       </section>
 
       {/* Core Values */}
-      <section className="py-20 sm:py-28 bg-[#FFFDF7] border-b border-[#F59E0B]/50">
+      <section className="py-10 sm:py-14 bg-[#FFFDF7] border-b border-[#F59E0B]/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             eyebrow="Our Core Values"
@@ -163,7 +163,7 @@ export const AboutPage: React.FC = () => {
       </section>
 
       {/* Reasons to Choose Sambhrama */}
-      <section className="py-20 sm:py-28 bg-[#FFFBEB] border-b border-[#F59E0B]/50">
+      <section className="py-10 sm:py-14 bg-[#FFFBEB] border-b border-[#F59E0B]/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             eyebrow="Why Sambhrama"
@@ -193,7 +193,7 @@ export const AboutPage: React.FC = () => {
       </section>
 
       {/* Three Business Divisions */}
-      <section className="py-20 sm:py-28 bg-[#FFFDF7]">
+      <section className="py-10 sm:py-14 bg-[#FFFDF7]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             eyebrow="Our Business Verticals"

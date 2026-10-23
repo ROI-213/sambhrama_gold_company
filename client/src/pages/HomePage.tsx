@@ -208,23 +208,23 @@ export const HomePage: React.FC = () => {
       </section>
 
       {/* 2. Gold Rates Section: Soft Golden Yellow Background with Crisp White Card */}
-      <section className="py-12 sm:py-20 bg-[#FFFBEB] border-b border-[#F59E0B]/40">
+      <section className="py-8 sm:py-12 bg-[#FFFBEB] border-b border-[#F59E0B]/40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <GoldRateCard />
         </div>
       </section>
 
       {/* 3. About the Company Section: Pure White Background */}
-      <section className="py-14 sm:py-28 bg-white text-[#1F1212] border-b border-[#F59E0B]/30">
+      <section className="py-10 sm:py-14 bg-white text-[#1F1212] border-b border-[#F59E0B]/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 items-center">
             <div className="lg:col-span-6">
               <div className="relative rounded-2xl overflow-hidden border-4 border-[#FFB800] shadow-xl">
                 <img
                   src="/images/venture-gold.jpg"
                   alt="Crafted Indian gold bangles, ornaments, and precision weighing scale"
                   loading="lazy"
-                  className="w-full h-[260px] sm:h-[440px] object-cover"
+                  className="w-full h-[260px] sm:h-[400px] object-cover"
                 />
                 <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-[#7F1D1D] via-[#7F1D1D]/85 to-transparent p-4 sm:p-6 text-white">
                   <p className="font-serif-luxury text-base sm:text-lg italic text-[#FFD700]">
@@ -246,7 +246,7 @@ export const HomePage: React.FC = () => {
                 sell or evaluate your gold, you deserve an environment that is courteous,
                 transparent, and thoroughly professional.
               </p>
-              <p className="text-base leading-relaxed text-[#4A2525] mb-8">
+              <p className="text-base leading-relaxed text-[#4A2525] mb-6">
                 Our evaluation process eliminates guesswork: we test purity using
                 non-destructive methods right before your eyes, weigh accurately, and
                 explain every detail clearly. Beyond our core Gold services, we also serve
@@ -262,10 +262,10 @@ export const HomePage: React.FC = () => {
       </section>
 
       {/* 4. Why Choose Sambhrama: Warm Ivory Section with Split Image-and-Text Pillar Cards */}
-      <section className="py-14 sm:py-28 bg-[#FDF8EE] border-b border-[#F59E0B]/40">
+      <section className="py-10 sm:py-14 bg-[#FDF8EE] border-b border-[#F59E0B]/40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Custom Section Heading matching reference typography */}
-          <div className="max-w-3xl text-center mx-auto mb-10 sm:mb-14">
+          <div className="max-w-3xl text-center mx-auto mb-8 sm:mb-10">
             <div className="inline-flex items-center gap-2 sm:gap-3 text-[11px] sm:text-xs font-bold uppercase tracking-[0.16em] sm:tracking-[0.22em] text-[#991B1B] mb-3">
               <span className="h-[1.5px] w-5 sm:w-7 bg-[#D97706]" aria-hidden="true" />
               <span>Why Choose Sambhrama</span>
@@ -336,7 +336,7 @@ export const HomePage: React.FC = () => {
       </section>
 
       {/* 5. How to Sell Gold: Crisp White Section with Golden Yellow & Red Timeline Cards */}
-      <section className="py-20 sm:py-28 bg-white border-b border-[#F59E0B]/30">
+      <section className="py-10 sm:py-14 bg-white border-b border-[#F59E0B]/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             eyebrow="How to Sell Gold"
@@ -369,7 +369,7 @@ export const HomePage: React.FC = () => {
       </section>
 
       {/* 6. Services Section: Soft Golden Cream Background */}
-      <section className="py-20 sm:py-28 bg-[#FFFDF7] border-b border-[#F59E0B]/35">
+      <section className="py-10 sm:py-14 bg-[#FFFDF7] border-b border-[#F59E0B]/35">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             eyebrow="Our Core Gold Services"
@@ -386,7 +386,7 @@ export const HomePage: React.FC = () => {
       </section>
 
       {/* 7. Our Ventures Section: Warm Yellow Highlight Background */}
-      <section className="py-20 sm:py-28 bg-[#FEF3C7]/55 border-b border-[#F59E0B]/40">
+      <section className="py-10 sm:py-14 bg-[#FEF3C7]/55 border-b border-[#F59E0B]/40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             eyebrow="Diversified Business Divisions"
@@ -403,7 +403,7 @@ export const HomePage: React.FC = () => {
       </section>
 
       {/* 8. Testimonials Section: Crisp White Background */}
-      <section className="py-20 sm:py-28 bg-white border-b border-[#F59E0B]/30">
+      <section className="py-10 sm:py-14 bg-white border-b border-[#F59E0B]/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             eyebrow="Customer Feedback"
@@ -412,11 +412,11 @@ export const HomePage: React.FC = () => {
           />
 
           {visibleTestimonials.length > 0 ? (
-            <div className="mb-10">
+            <div className="mb-6">
               <TestimonialMarquee items={visibleTestimonials} />
             </div>
           ) : (
-            <div className="rounded-xl border-2 border-[#F59E0B]/50 bg-[#FFFBEB] p-8 sm:p-10 text-center max-w-2xl mx-auto mb-10 shadow-sm">
+            <div className="rounded-xl border-2 border-[#F59E0B]/50 bg-[#FFFBEB] p-8 sm:p-10 text-center max-w-2xl mx-auto mb-6 shadow-sm">
               <MessageSquareQuote
                 className="h-10 w-10 text-[#8B0000] mx-auto mb-3"
                 aria-hidden="true"
@@ -444,7 +444,7 @@ export const HomePage: React.FC = () => {
       {/* 9. Quick Enquiry Section: Soft Yellow Background with White Card Form */}
       <section
         id="quick-enquiry"
-        className="py-20 sm:py-28 bg-[#FFFBEB] border-b border-[#F59E0B]/40"
+        className="py-10 sm:py-14 bg-[#FFFBEB] border-b border-[#F59E0B]/40"
       >
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
@@ -463,7 +463,7 @@ export const HomePage: React.FC = () => {
       </section>
 
       {/* 10. Final CTA Section: Royal Red & Golden Yellow Showcase */}
-      <section className="py-20 sm:py-24 bg-gradient-to-br from-[#8B0000] via-[#7F1D1D] to-[#5C060A] text-white">
+      <section className="py-10 sm:py-14 bg-gradient-to-br from-[#8B0000] via-[#7F1D1D] to-[#5C060A] text-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <span className="inline-block text-xs font-bold uppercase tracking-[0.22em] text-[#FFD700] mb-3">
             Transparent • Respectful • Professional

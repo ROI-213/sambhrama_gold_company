@@ -18,7 +18,7 @@ export const SectionHeading: React.FC<SectionHeadingProps> = ({
   const alignment = align === "center" ? "text-center mx-auto" : "text-left";
 
   return (
-    <div className={`max-w-3xl ${alignment} mb-12`}>
+    <div className={`max-w-3xl ${alignment} mb-8`}>
       {eyebrow && (
         <div
           className={`inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.22em] mb-3 ${

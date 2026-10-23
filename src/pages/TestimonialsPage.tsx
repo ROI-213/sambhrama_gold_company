@@ -33,7 +33,7 @@ export const TestimonialsPage: React.FC = () => {
         </PrimaryButton>
       </HeroBanner>
 
-      <section className="py-20 sm:py-28 bg-[#FFFDF7] border-b border-[#F59E0B]/50">
+      <section className="py-10 sm:py-14 bg-[#FFFDF7] border-b border-[#F59E0B]/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             eyebrow="Genuine Feedback Only"
@@ -95,7 +95,7 @@ export const TestimonialsPage: React.FC = () => {
       </section>
 
       {/* Conversion CTA */}
-      <section className="py-20 bg-[#FFFBEB]">
+      <section className="py-10 sm:py-14 bg-[#FFFBEB]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <ShieldCheck
             className="h-10 w-10 text-[#B91C1C] mx-auto mb-3"

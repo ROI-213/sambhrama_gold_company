@@ -45,7 +45,7 @@ export const SellYourGoldPage: React.FC = () => {
       </HeroBanner>
 
       {/* 2. Introduction & Gold Rate Snapshot */}
-      <section className="py-16 sm:py-24 bg-[#FFFBEB] border-b border-[#F59E0B]/50">
+      <section className="py-10 sm:py-14 bg-[#FFFBEB] border-b border-[#F59E0B]/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           <div className="max-w-3xl mx-auto text-center">
             <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[#B91C1C]">
@@ -67,7 +67,7 @@ export const SellYourGoldPage: React.FC = () => {
       </section>
 
       {/* 3. Gold Types Accepted */}
-      <section className="py-20 sm:py-28 bg-[#FFFDF7] border-b border-[#F59E0B]/50">
+      <section className="py-10 sm:py-14 bg-[#FFFDF7] border-b border-[#F59E0B]/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             eyebrow="Eligible Items"
@@ -106,7 +106,7 @@ export const SellYourGoldPage: React.FC = () => {
       </section>
 
       {/* 4. Selling Process */}
-      <section className="py-20 sm:py-28 bg-[#FFFBEB] border-b border-[#F59E0B]/50">
+      <section className="py-10 sm:py-14 bg-[#FFFBEB] border-b border-[#F59E0B]/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             eyebrow="Step-by-Step Workflow"
@@ -136,7 +136,7 @@ export const SellYourGoldPage: React.FC = () => {
       </section>
 
       {/* 5. Benefits */}
-      <section className="py-20 sm:py-28 bg-[#FFFDF7] text-[#3D070A]">
+      <section className="py-10 sm:py-14 bg-[#FFFDF7] text-[#3D070A]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             eyebrow="Key Advantages"
@@ -169,7 +169,7 @@ export const SellYourGoldPage: React.FC = () => {
       {/* 6. Sell Your Gold Enquiry Form */}
       <section
         id="sell-gold-enquiry"
-        className="py-20 sm:py-28 bg-[#FFFBEB] border-b border-[#F59E0B]/50"
+        className="py-10 sm:py-14 bg-[#FFFBEB] border-b border-[#F59E0B]/50"
       >
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
@@ -188,7 +188,7 @@ export const SellYourGoldPage: React.FC = () => {
       </section>
 
       {/* 7. Frequently Asked Questions */}
-      <section className="py-20 sm:py-28 bg-[#FFFDF7] border-b border-[#F59E0B]/50">
+      <section className="py-10 sm:py-14 bg-[#FFFDF7] border-b border-[#F59E0B]/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             eyebrow="Frequently Asked Questions"
@@ -201,7 +201,7 @@ export const SellYourGoldPage: React.FC = () => {
       </section>
 
       {/* 8. Final CTA */}
-      <section className="py-20 bg-gradient-to-br from-[#8B0000] via-[#7F1D1D] to-[#5C060A] text-white">
+      <section className="py-10 sm:py-14 bg-gradient-to-br from-[#8B0000] via-[#7F1D1D] to-[#5C060A] text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <ShieldCheck
             className="h-10 w-10 text-[#FFD700] mx-auto mb-3"
